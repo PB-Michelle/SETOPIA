@@ -13,7 +13,7 @@
 
 * **Name:** Mariana Linares García
 * **Role:** Narrative Designer
-* **Location:** Gachancipá, Cundinamarca, Colombia
+* **Location:** Sopó, Cundinamarca, Colombia
 * **Profile:** Estudiante de Ingeniería Multimedia, interesada en el diseño y desarrollo de videojuegos. Como Narrative Designer, me interesa participar en la creación de historias, personajes y elementos narrativos que contribuyan a construir una experiencia significativa para el jugador. Me gusta explorar ideas creativas y buscar formas de comunicar mensajes a través de experiencias interactivas.
 
 <br>
