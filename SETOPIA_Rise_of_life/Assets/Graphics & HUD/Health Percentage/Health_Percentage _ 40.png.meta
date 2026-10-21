@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c4d1d2a27e20a80458d59eddc93276b2
+guid: 6abb7df5212125843a89a645ab2e8cc1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -590631598942075993
-    second: Health Percentage  30_0
+      213: -8336815035780861962
+    second: Health_Percentage _ 40_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Percentage  30_0
+      name: Health_Percentage _ 40_0
       rect:
         serializedVersion: 2
         x: 273
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7a3cfe7a0b7adc7f0800000000000000
-      internalID: -590631598942075993
+      spriteID: 6ff652235eead4c80800000000000000
+      internalID: -8336815035780861962
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health Percentage  30_0: -590631598942075993
+      Health_Percentage _ 40_0: -8336815035780861962
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

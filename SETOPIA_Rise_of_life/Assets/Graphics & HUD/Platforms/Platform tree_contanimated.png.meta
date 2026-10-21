@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3e21a05231bd2a24883c3a5830b54b27
+guid: f9afbb34c0239e048be0bc9cdace8a93
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3365073859671070687
-    second: Health Percentage 90_0
+      213: -958846505289309595
+    second: Platform tree_contanimated_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Percentage 90_0
+      name: Platform tree_contanimated_0
       rect:
         serializedVersion: 2
-        x: 272
-        y: 111
-        width: 5084
-        height: 1474
+        x: 1535
+        y: 380
+        width: 9143
+        height: 7623
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1286a5f472bdc41d0800000000000000
-      internalID: -3365073859671070687
+      spriteID: 5622b120f2e71b2f0800000000000000
+      internalID: -958846505289309595
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health Percentage 90_0: -3365073859671070687
+      Platform tree_contanimated_0: -958846505289309595
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

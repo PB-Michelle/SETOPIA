@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5468a427ed8ba0458a06481810484ea
+guid: cc83e413699902c4bb14a36443677cb4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1599744696700714464
-    second: Health Percentage  50_0
+      213: -5688078969190600009
+    second: crouch_button_maximum_contrast_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Health Percentage  50_0
+      name: crouch_button_maximum_contrast_0
       rect:
         serializedVersion: 2
-        x: 273
-        y: 111
-        width: 5083
-        height: 1474
+        x: 138
+        y: 137
+        width: 976
+        height: 977
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0ed392a635f633610800000000000000
-      internalID: 1599744696700714464
+      spriteID: 7b236037052ef01b0800000000000000
+      internalID: -5688078969190600009
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Health Percentage  50_0: 1599744696700714464
+      crouch_button_maximum_contrast_0: -5688078969190600009
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
