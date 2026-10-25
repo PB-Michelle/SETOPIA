@@ -437,8 +437,8 @@ AnimatorController:
     m_Controller: {fileID: 9100000}
   m_EvaluateTransitionsOnStart: 1
 --- !u!1102 &611415130205886442
-AnimatorStateMachine:
-  serializedVersion: 7
+AnimatorState:
+  serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
