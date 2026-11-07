@@ -1,57 +1,64 @@
 # SETOPIA: RISE OF LIFE 🍄🌿
 
-> Un videojuego de plataformas 2D con propósito social enfocado en concientizar sobre la contaminación ambiental, la salud y el bienestar colectivo.
+> A 2D platform game with a social purpose that aims to raise awareness about environmental pollution, health, and collective well-being.
 
 ---
 
-## 📖 Acerca del Proyecto
+## 📖 About the Project
 
-**SETOPIA: RISE OF LIFE** es una experiencia interactiva diseñada principalmente para niños y adolescentes (de 8 a 15 años), optimizada para dispositivos móviles de gama media. La historia se desarrolla en un entorno urbano azotado por una densa niebla tóxica que deteriora la calidad del aire y la vida natural. 
+**SETOPIA: RISE OF LIFE** is an interactive experience designed mainly for children and teenagers between 8 and 15 years old. The game is optimized for mid-range mobile devices.
 
-El jugador controla a un tierno hongo con la habilidad especial de purificar el aire y restaurar los espacios afectados. A través de mecánicas dinámicas, el juego vincula directamente las acciones del jugador (limpiar, recoger, decidir) con la transformación visual del entorno: los escenarios pasan de tonos grises y apagados a espacios llenos de color, vegetación y vida.
+The story takes place in an urban environment affected by a dense toxic fog that damages air quality, vegetation, and wildlife.
 
----
-
-## 🎮 Mecánicas de Juego y Controles
-
-El juego cuenta con un sistema de controles adaptado tanto para botones táctiles en pantalla como para gestos:
-
-*   **Avanzar:** Desplazamiento lateral en 2D para recorrer los escenarios.
-    *   *Controles:* Botones direccionales o deslizar la pantalla.
-*   **Saltar:** Permite superar huecos, charcos contaminados y plataformas inestables.
-    *   *Controles:* Botón superior o toque en pantalla.
-*   **Agacharse:** Reduce la *hitbox* del personaje en un 50% para esquivar ramas bajas y niebla tóxica a media altura.
-    *   *Controles:* Botón inferior o deslizar hacia abajo.
-*   **Recoger:** Permite recolectar residuos, basura y elementos ambientales para limpiar el sector.
-    *   *Controles:* Toque directo sobre el objeto interactivo.
-*   **Seleccionar:** Utilizado para tomar decisiones rápidas (como ayudar a la fauna afectada) o interactuar en los minijuegos rítmicos de purificación.
+The player controls a small and friendly mushroom with the special ability to purify the air and restore polluted areas. Through different game mechanics, the player's actions, such as cleaning, collecting items, and making decisions, directly affect the environment. As the player progresses, grey and lifeless areas gradually transform into colorful spaces full of vegetation and life.
 
 ---
 
-## 🗺️ Estructura del Juego
+## 🎮 Gameplay Mechanics and Controls
 
-El juego consta de **6 niveles progresivos** (un tutorial y cinco niveles principales) diseñados para sesiones cortas, con *checkpoints* cada 20 metros para evitar la frustración:
+The game includes controls designed for both on-screen buttons and touch gestures.
 
-1.  **Tutorial (El Despertar):** Zona segura para aprender las mecánicas básicas de movimiento y recolección.
-2.  **Nivel 1 (El Callejón):** Recolección de residuos y limpieza de charcos tóxicos en una calle urbana.
-3.  **Nivel 2 (La Arboleda):** Introducción de la mecánica de agacharse para sortear niebla y ramas inestables.
-4.  **Nivel 3 (La Quebrada):** Primeras decisiones rápidas e interacción con fauna afectada (peces).
-5.  **Nivel 4 (Zona Industrial):** Alta densidad de niebla, aves en movimiento y minijuegos rítmicos para activar purificadores.
-6.  **Nivel 5 (El Núcleo):** Reto final que combina todas las mecánicas y obstáculos en su máxima dificultad].
-
----
-
-## 🎨 Características Técnicas y Accesibilidad
-
-*   **Estilo Visual Evolutivo:** Los escenarios cambian de saturación baja (20%-30% en estados contaminados) a saturación alta (80%-90% con colores vivos al restaurar la zona).
-*   **HUD Minimalista:** Indicadores esenciales integrados (barra de restauración con icono de hoja y objetivo actual).
-*   **Accesibilidad (WCAG 2.2 y DUA):**
-    *   Opciones de contraste ajustable (Normal, Alto y Muy Alto).
-    *   Tamaño de texto modificable y tipografía clara (*Roboto*).
-    *   Sistema de alertas con formas, colores e iconos duales (sin depender exclusivamente del sonido).
+*   **Move:** Allows the player to travel through the environment in a 2D side-scrolling world.
+    *   *Controls:* Directional buttons or swipe gesture.
+*   **Jump:** Allows the player to overcome gaps, toxic puddles, and unstable platforms.
+    *   *Controls:* Jump button or screen tap.
+*   **Crouch:** Reduces the character's hitbox by 50%, allowing the player to avoid low branches and toxic fog.
+    *   *Controls:* Crouch button or swipe down.
+*   **Collect:** Allows the player to gather waste, trash, and environmental items to clean the area.
+    *   *Controls:* Tap the interactive object.
+*   **Select:** Used to make quick decisions, such as helping affected animals, or to interact with rhythm-based purification activities.
 
 ---
 
-## 👥 Equipo de Desarrollo
+## 🗺️ Game Structure
 
-Proyecto desarrollado de manera colaborativa enfocado en el impacto social positivo y la educación ambiental a través del diseño de videojuegos.
+The game contains six progressive levels: one tutorial level and five main levels. Levels are designed for short gameplay sessions and include checkpoints every 20 meters to reduce frustration.
+
+1.  **Tutorial – The Awakening:** A safe area where players learn the basic movement and collection mechanics.
+2.  **Level 1 – The Alley:** Players collect waste and clean toxic puddles in an urban street.
+3.  **Level 2 – The Grove:** Introduces the crouch mechanic to avoid toxic fog and unstable branches.
+4.  **Level 3 – The Stream:** Introduces quick decision-making and interaction with affected wildlife, such as polluted fish.
+5.  **Level 4 – Industrial Zone:** Features dense toxic fog, moving birds, and rhythm-based activities used to activate air purifiers.
+6.  **Level 5 – The Core** The final challenge, where all mechanics and obstacles are combined at their highest difficulty level.
+
+---
+
+## 🎨 Technical Features and Accessibility
+
+*   **Environmental Transformation:** The environment changes as the player progresses. Polluted areas use low-saturation colors, while restored areas become brighter and more colorful.
+*   **Minimalist HUD:** The interface displays only the most important information:Restoration bar with a leaf icon and urrent objective indicator.
+*   **Accessibility Features:** The game follows accessibility principles inspired by WCAG 2.2 and Universal Design for Learning (UDL). Features include:
+    *   Adjustable contrast settings (Normal, High, and Very High).
+    *   Adjustable text size.
+    *   Clear and readable typography (Roboto).
+    *   Icons, colors, and shapes used together to communicate information.
+    *   Subtitles for relevant audio and tutorial content.
+    *   Visual feedback that does not rely only on sound.
+
+---
+
+## 👥 Development Team
+
+This project was developed collaboratively with the goal of promoting environmental awareness and positive social impact through video game design.
+
+The project combines educational objectives, accessibility principles, and interactive gameplay to help young players understand the connection between environmental care, health, and community well-being.
