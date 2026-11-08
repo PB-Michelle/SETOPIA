@@ -1,0 +1,97 @@
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour
+{
+    // -------------------- MOVEMENT SETTINGS --------------------
+
+    public float moveSpeed = 5f;
+    public float jumpForce = 8f;
+
+    private Rigidbody2D rb;
+
+    private float moveInput;
+
+    // Stores whether the player is using HUD controls.
+    private bool usingHUD = false;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Update()
+    {
+        // Read keyboard input only when HUD controls are not being used.
+        if (!usingHUD)
+        {
+            moveInput = 0;
+
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                moveInput = 1;
+            }
+
+            if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                moveInput = -1;
+            }
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                Jump();
+            }
+        }
+    }
+
+    void FixedUpdate()
+    {
+        // Apply horizontal movement while preserving vertical velocity.
+        rb.linearVelocity = new Vector2(
+            moveInput * moveSpeed,
+            rb.linearVelocity.y
+        );
+    }
+
+    // Called when the right HUD button is pressed.
+    public void MoveRight()
+    {
+        usingHUD = true;
+        moveInput = 1;
+    }
+
+    // Called when the left HUD button is pressed.
+    public void MoveLeft()
+    {
+        usingHUD = true;
+        moveInput = -1;
+    }
+
+    // Called when a HUD movement button is released.
+    public void StopMovement()
+    {
+        usingHUD = false;
+        moveInput = 0;
+    }
+
+    // Called when the Jump HUD button is pressed.
+    public void Jump()
+    {
+        rb.linearVelocity =
+            new Vector2(
+            rb.linearVelocity.x,
+            jumpForce);
+    }
+
+    // Called when the Crouch HUD button is pressed.
+    public void Crouch()
+    {
+        Debug.Log("Crouch");
+    }
+
+    // Called when the Pickup HUD button is pressed.
+    public void Pickup()
+    {
+        Debug.Log("Pickup");
+    }
+
+
+}
