@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0155e941ec8c1cd44b34649236413534
+guid: 8049804fdc3ce5c408b8a079e2f35e6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1148529887758219640
-    second: Contaminated_BG_01_0
+      213: -1584179601435500634
+    second: Panel A_Restored_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Contaminated_BG_01_0
+      name: Panel A_Restored_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1600
-        height: 533
+        width: 1680
+        height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 886804af62a9f00f0800000000000000
-      internalID: -1148529887758219640
+      spriteID: 6af540cbb0dd30ae0800000000000000
+      internalID: -1584179601435500634
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Contaminated_BG_01_0: -1148529887758219640
+      Panel A_Restored_0: -1584179601435500634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
