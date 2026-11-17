@@ -9,7 +9,7 @@ public class UIButtonHighlight : MonoBehaviour
 
     private Color originalColor;
 
-    public Color highlightColor = Color.yellow;
+    public Color highlightColor = new Color(0f, 0.89f, 1f);
 
     void Start()
     {
