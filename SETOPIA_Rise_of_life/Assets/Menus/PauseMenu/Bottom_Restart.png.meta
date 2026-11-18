@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 0c21d7c0e7849e14f8fe47e0d6d7c0f9
+guid: 7f756f13800e06c42ab8cd0236e0249e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2873893313121424162
-    second: Main_Menu_0
-  - first:
-      213: 8299250643274955048
-    second: Main_Menu_1
+      213: 8288426215254106694
+    second: 8_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -99,17 +96,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Main_Menu_0
+      name: 8_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 1625
-        width: 7
-        height: 8
+        x: 548
+        y: 856
+        width: 1029
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,30 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: edce60d1241ed18d0800000000000000
-      internalID: -2873893313121424162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Main_Menu_1
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 26
-        width: 1954
-        height: 1974
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 829f55e1d7cdc2370800000000000000
-      internalID: 8299250643274955048
+      spriteID: 642a1439ab7660370800000000000000
+      internalID: 8288426215254106694
       vertices: []
       indices: 
       edges: []
@@ -160,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Main_Menu_0: -2873893313121424162
-      Main_Menu_1: 8299250643274955048
+      8_0: 8288426215254106694
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
