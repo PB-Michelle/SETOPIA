@@ -8,12 +8,6 @@ public class PlayerController : MonoBehaviour
 
     public float moveSpeed = 5f;
     public float jumpForce = 8f;
-    public AudioClip movementClip;
-    public AudioClip jumpClip;
-    public AudioClip crouchClip;
-    public AudioClip pickupClip;
-
-    private AudioSource audioSource;
 
     private Rigidbody2D rb;
 
@@ -25,7 +19,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -60,21 +53,11 @@ public class PlayerController : MonoBehaviour
         );
     }
 
-    public void SetMoveSpeed(float speed)
-    {
-        moveSpeed = speed;
-    }
-
     // Called when the right HUD button is pressed.
     public void MoveRight()
     {
         usingHUD = true;
         moveInput = 1;
-
-        if (jumpClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(movementClip);
-        }
     }
 
     // Called when the left HUD button is pressed.
@@ -82,11 +65,6 @@ public class PlayerController : MonoBehaviour
     {
         usingHUD = true;
         moveInput = -1;
-
-        if (jumpClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(movementClip);
-        }
     }
 
     // Called when a HUD movement button is released.
@@ -103,33 +81,18 @@ public class PlayerController : MonoBehaviour
             new Vector2(
             rb.linearVelocity.x,
             jumpForce);
-
-        if (jumpClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(jumpClip);
-        }
-
     }
 
     // Called when the Crouch HUD button is pressed.
     public void Crouch()
     {
         Debug.Log("Crouch");
-
-        if (jumpClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(crouchClip);
-        }
     }
+
     // Called when the Pickup HUD button is pressed.
     public void Pickup()
     {
         Debug.Log("Pickup");
-
-        if (jumpClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(pickupClip);
-        }
     }
 
 
