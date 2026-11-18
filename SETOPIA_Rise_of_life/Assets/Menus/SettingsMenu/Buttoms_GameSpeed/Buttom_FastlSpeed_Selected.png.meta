@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5889013ba7c6ae9479c688d88ad6e729
+guid: a99a657999120f9439f5fe8d12f67865
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4113829005332862926
-    second: 9_0
+      213: 2364871990663053279
+    second: Buttom_FastlSpeed_Selected_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -96,30 +96,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 4
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 9_0
+      name: Buttom_FastlSpeed_Selected_0
       rect:
         serializedVersion: 2
-        x: 544
-        y: 1127
-        width: 1037
-        height: 255
+        x: 1418
+        y: 747
+        width: 271
+        height: 124
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ec750913fa1471930800000000000000
-      internalID: 4113829005332862926
+      spriteID: fdffdbebb86b1d020800000000000000
+      internalID: 2364871990663053279
       vertices: []
       indices: 
       edges: []
@@ -148,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      9_0: 4113829005332862926
+      Buttom_FastlSpeed_Selected_0: 2364871990663053279
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
