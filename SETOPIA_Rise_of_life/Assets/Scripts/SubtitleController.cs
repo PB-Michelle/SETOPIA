@@ -34,11 +34,6 @@ public class SubtitleController : MonoBehaviour
         StartCoroutine(HideSubtitle());
     }
 
-    public void SetTextSize(float size)
-    {
-        subtitleText.fontSize = size;
-    }
-
     // Hides the subtitle after a specified delay.
     IEnumerator HideSubtitle()
     {
