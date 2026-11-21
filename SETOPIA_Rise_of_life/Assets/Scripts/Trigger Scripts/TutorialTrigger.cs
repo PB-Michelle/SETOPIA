@@ -5,7 +5,7 @@ using System.Collections;
 public class TutorialTrigger : MonoBehaviour
 {
     public UIButtonHighlight[] buttonHighlights;
-
+    public AudioSource triggerSound;
     public SubtitleController subtitleController;
 
     // Stores the tutorial message to be displayed when the trigger is activated.
@@ -18,6 +18,9 @@ public class TutorialTrigger : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         // Prevents the trigger from being activated more than once.
+        if (!PauseMenuController.GameStarted)
+            return;
+
         if (activated)
             return;
 
@@ -26,7 +29,11 @@ public class TutorialTrigger : MonoBehaviour
         {
             // Marks the trigger as activated.
             activated = true;
-            Debug.Log("TRIGGER ACTIVADO");
+
+            if (triggerSound != null)
+            {
+                triggerSound.Play();
+            }
 
             // Displays the tutorial message using the subtitle system.
             if (subtitleController != null)
