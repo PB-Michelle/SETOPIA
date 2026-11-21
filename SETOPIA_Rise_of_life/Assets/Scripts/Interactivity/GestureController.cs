@@ -3,13 +3,15 @@ using UnityEngine;
 
 public class GestureController : MonoBehaviour
 {
-    public PlayerController player;
-    public SubtitleController subtitleController;
+    [Header("Controller References")]
+    [SerializeField] private PlayerController player;
+    [SerializeField] private SubtitleController subtitleController;
+
+    [Header("Gesture Settings")]
+    [SerializeField] private float swipeThreshold = 100f;
+    [SerializeField] private float tapThreshold = 20f;
 
     private Vector2 startTouchPosition;
-
-    private float swipeThreshold = 100f;
-    private float tapThreshold = 20f;
 
     private void Update()
     {
@@ -24,8 +26,7 @@ public class GestureController : MonoBehaviour
 #endif
     }
 
-    // ---------------- MOUSE INPUT (UNITY EDITOR) ----------------
-
+    // Handles mouse input during Unity Editor testing.
     private void HandleMouseInput()
     {
         if (Input.GetMouseButtonDown(0))
@@ -39,8 +40,7 @@ public class GestureController : MonoBehaviour
         }
     }
 
-    // ---------------- TOUCH INPUT (ANDROID) ----------------
-
+    // Handles touch input on mobile devices.
     private void HandleTouchInput()
     {
         if (Input.touchCount == 0)
@@ -59,84 +59,70 @@ public class GestureController : MonoBehaviour
         }
     }
 
-    // ---------------- GESTURE PROCESSING ----------------
-
     private void ProcessGesture(Vector2 endPosition)
     {
         float deltaX = endPosition.x - startTouchPosition.x;
         float deltaY = endPosition.y - startTouchPosition.y;
 
-        // SWIPE RIGHT
-        if (deltaX > swipeThreshold &&
+        // Detect horizontal swipes.
+        if (Mathf.Abs(deltaX) > swipeThreshold &&
             Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
         {
-            Debug.Log("SWIPE RIGHT");
-
-            player.MoveRight();
-
-            return;
-        }
-
-        // SWIPE LEFT
-        if (deltaX < -swipeThreshold &&
-            Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
-        {
-            Debug.Log("SWIPE LEFT");
-
-            player.MoveLeft();
-
-            return;
-        }
-
-        // SWIPE UP = JUMP
-        if (deltaY > swipeThreshold &&
-            Mathf.Abs(deltaY) > Mathf.Abs(deltaX))
-        {
-            Debug.Log("SWIPE UP -> JUMP");
-
-            player.Jump();
-
-            if (subtitleController != null)
+            if (deltaX > 0f)
             {
-                subtitleController.ShowSubtitle("[Jump]");
+                Debug.Log("SWIPE RIGHT");
+                player.MoveRight();
+            }
+            else
+            {
+                Debug.Log("SWIPE LEFT");
+                player.MoveLeft();
             }
 
             return;
         }
 
-        // SWIPE DOWN = CROUCH
-        if (deltaY < -swipeThreshold &&
+        // Detect vertical swipes.
+        if (Mathf.Abs(deltaY) > swipeThreshold &&
             Mathf.Abs(deltaY) > Mathf.Abs(deltaX))
         {
-            Debug.Log("SWIPE DOWN -> CROUCH");
-
-            player.Crouch();
-
-            if (subtitleController != null)
+            if (deltaY > 0f)
             {
-                subtitleController.ShowSubtitle("[The mushrom crouches down]");
+                Debug.Log("SWIPE UP -> JUMP");
+                player.Jump();
+
+                if (subtitleController != null)
+                {
+                    subtitleController.ShowSubtitle("[Jump]");
+                }
+            }
+            else
+            {
+                Debug.Log("SWIPE DOWN -> CROUCH");
+                player.Crouch();
+
+                if (subtitleController != null)
+                {
+                    subtitleController.ShowSubtitle("[The mushrom crouches down]");
+                }
             }
 
             return;
         }
 
-        // TAP = STOP MOVEMENT
+        // Detect taps and stop player movement.
         if (Mathf.Abs(deltaX) < tapThreshold &&
             Mathf.Abs(deltaY) < tapThreshold)
         {
             Debug.Log("TAP -> STOP");
-
             player.StopMovement();
 
             /*
              FUTURE PICKUP IMPLEMENTATION
 
-             Detect selectable objects:
-
              player.Pickup();
 
-             subtitleController.ShowSubtitle(
-                 "Collected waste");
+             subtitleController.ShowSubtitle("Collected waste");
             */
         }
     }

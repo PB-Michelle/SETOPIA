@@ -5,32 +5,34 @@ using UnityEngine.EventSystems;
 // Handles pointer input events for the HUD movement buttons.
 public class MoveButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    // Reference to the PlayerController script.
-    public PlayerController player;
+    [Header("Controller Reference")]
+    [SerializeField] private PlayerController player;
 
-    // Determines the movement direction of this button.
-    public bool moveRight;
+    [Header("Movement Settings")]
+    [SerializeField] private bool moveRight;
 
-    // Called when the player presses or touches the button.
+    // Starts movement when the button is pressed.
     public void OnPointerDown(PointerEventData eventData)
     {
-        // Check which movement direction is assigned to this button.
+        if (player == null)
+            return;
+
         if (moveRight)
         {
-            // Calls the method to move the player to the right.
             player.MoveRight();
         }
         else
         {
-            // Calls the method to move the player to the left.
             player.MoveLeft();
         }
     }
 
-    // Called when the player releases the button.
+    // Stops movement when the button is released.
     public void OnPointerUp(PointerEventData eventData)
     {
-        // Stops the player's horizontal movement.
+        if (player == null)
+            return;
+
         player.StopMovement();
     }
 }

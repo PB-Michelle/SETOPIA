@@ -3,9 +3,11 @@ using UnityEngine;
 
 public class UIButtonSound : MonoBehaviour
 {
-    public AudioSource audioSource;
-    public AudioClip buttonClickClip;
+    [Header("Audio Settings")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip buttonClickClip;
 
+    // Plays the button click sound.
     public void PlayButtonSound()
     {
         if (audioSource != null && buttonClickClip != null)
