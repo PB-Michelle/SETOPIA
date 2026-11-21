@@ -14,8 +14,9 @@ public class PlayerController : MonoBehaviour
     public AudioClip pickupClip;
 
     private AudioSource audioSource;
-
     private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private float moveInput;
 
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
@@ -44,10 +47,23 @@ public class PlayerController : MonoBehaviour
             {
                 moveInput = -1;
             }
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
             }
+        }
+
+        // Update walk/idle animation parameter for both keyboard and HUD buttons.
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        }
+
+        // Flip the character sprite horizontally based on movement direction.
+        if (spriteRenderer != null && moveInput != 0)
+        {
+            spriteRenderer.flipX = moveInput < 0;
         }
     }
 
@@ -71,7 +87,7 @@ public class PlayerController : MonoBehaviour
         usingHUD = true;
         moveInput = 1;
 
-        if (jumpClip != null && audioSource != null)
+        if (movementClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(movementClip);
         }
@@ -83,7 +99,7 @@ public class PlayerController : MonoBehaviour
         usingHUD = true;
         moveInput = -1;
 
-        if (jumpClip != null && audioSource != null)
+        if (movementClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(movementClip);
         }
@@ -99,16 +115,21 @@ public class PlayerController : MonoBehaviour
     // Called when the Jump HUD button is pressed.
     public void Jump()
     {
-        rb.linearVelocity =
-            new Vector2(
+        rb.linearVelocity = new Vector2(
             rb.linearVelocity.x,
-            jumpForce);
+            jumpForce
+        );
+
+        // Trigger jump animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Jump");
+        }
 
         if (jumpClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(jumpClip);
         }
-
     }
 
     // Called when the Crouch HUD button is pressed.
@@ -116,21 +137,26 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Crouch");
 
-        if (jumpClip != null && audioSource != null)
+        if (crouchClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(crouchClip);
         }
     }
+
     // Called when the Pickup HUD button is pressed.
     public void Pickup()
     {
         Debug.Log("Pickup");
 
-        if (jumpClip != null && audioSource != null)
+        // Trigger grab animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Grab");
+        }
+
+        if (pickupClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(pickupClip);
         }
     }
-
-
 }
