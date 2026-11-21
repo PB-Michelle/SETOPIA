@@ -3417,8 +3417,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Radius: 3
 --- !u!114 &233412197
-
---- !u!114 &233412197
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3603,7 +3601,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
--- !u!1 &243132625
+--- !u!1 &243132625
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25071,7 +25069,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!1 &1047620700
+--- !u!1 &2098765431
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
