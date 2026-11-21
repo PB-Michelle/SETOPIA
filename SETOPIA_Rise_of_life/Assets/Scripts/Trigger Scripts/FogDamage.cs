@@ -5,45 +5,23 @@ using UnityEngine;
 public class FogDamage : MonoBehaviour
 {
     [Header("Damage Settings")]
-    public float damagePerTick = 1f;
-    public float damageInterval = 1f;
+    [SerializeField] private float damagePerTick = 1f;
+    [SerializeField] private float damageInterval = 1f;
 
     private Coroutine damageCoroutine;
 
-    private void Awake()
-    {
-        Debug.Log("FogDamage Awake: " + gameObject.name);
-    }
-
-    private void OnEnable()
-    {
-        Debug.Log("FogDamage OnEnable: " + gameObject.name);
-    }
-
-    private void Start()
-    {
-        Debug.Log("FogDamage Start: " + gameObject.name);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("FogZone detected: " + other.name);
 
         // Get the player's health component.
         PlayerHealth playerHealth =
             other.GetComponentInParent<PlayerHealth>();
 
+        // Start applying damage if the player is not already affected.
         if (playerHealth != null && damageCoroutine == null)
         {
-            Debug.Log("Player detected. Starting fog damage.");
-
-            // Start the damage coroutine.
             damageCoroutine = StartCoroutine(
                 ApplyDamage(playerHealth));
-        }
-        else if (playerHealth == null)
-        {
-            Debug.Log("PlayerHealth component not found.");
         }
     }
 
@@ -57,17 +35,16 @@ public class FogDamage : MonoBehaviour
         {
             Debug.Log("Player left the fog zone.");
 
-            // Stop the damage when the player exits.
+            // Stop applying damage when the player exits.
             StopDamage();
         }
     }
 
     private IEnumerator ApplyDamage(PlayerHealth playerHealth)
     {
+
         while (true)
         {
-            Debug.Log("Applying fog damage: " + damagePerTick);
-
             // Apply damage at each interval.
             playerHealth.TakeDamage(damagePerTick);
 
@@ -79,7 +56,7 @@ public class FogDamage : MonoBehaviour
     {
         if (damageCoroutine != null)
         {
-            // Stop the coroutine and reset its reference.
+            // Stop the coroutine and clear its reference.
             StopCoroutine(damageCoroutine);
             damageCoroutine = null;
         }

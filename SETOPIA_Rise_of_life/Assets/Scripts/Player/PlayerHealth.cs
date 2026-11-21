@@ -4,21 +4,21 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("Health Settings")]
-    public float maxHealth = 100f;
-    private float currentHealth;
-    public float damageAnimCooldown = 0.6f;
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float damageAnimCooldown = 0.6f;
 
     [Header("Health Images")]
-    public GameObject live100;
-    public GameObject live60;
-    public GameObject live40;
-    public GameObject live10;
+    [SerializeField] private GameObject live100;
+    [SerializeField] private GameObject live60;
+    [SerializeField] private GameObject live40;
+    [SerializeField] private GameObject live10;
 
     private Animator animator;
+    private float currentHealth;
     private bool isDead = false;
     private float lastDamageAnimTime = -10f;
 
-    void Start()
+    private void Start()
     {
         // Get the Animator component attached to the Player object.
         animator = GetComponent<Animator>();
@@ -34,7 +34,7 @@ public class PlayerHealth : MonoBehaviour
         if (isDead)
             return;
 
-        // Reduce health without going below zero.
+        // Prevent health from dropping below zero.
         currentHealth = Mathf.Max(0, currentHealth - damage);
 
         // Trigger the damage animation once per cooldown so continuous hazards do not loop it.
@@ -47,7 +47,6 @@ public class PlayerHealth : MonoBehaviour
 
         UpdateHealthUI();
 
-        // Check if the player has no health left.
         if (currentHealth <= 0)
         {
             Die();
@@ -56,13 +55,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        // Hide all health images before showing the current one.
+        // Hide all health indicators before updating the display.
         live100.SetActive(false);
         live60.SetActive(false);
         live40.SetActive(false);
         live10.SetActive(false);
 
-        // Display the image that matches the current health.
+        // Display the health indicator corresponding to the current value.
         if (currentHealth > 60)
         {
             live100.SetActive(true);
