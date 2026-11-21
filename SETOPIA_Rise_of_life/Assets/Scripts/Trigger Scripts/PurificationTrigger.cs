@@ -6,7 +6,9 @@ public class PurificationTrigger : MonoBehaviour
     public GameObject pollutedEnvironment;
     public GameObject restoredEnvironment;
     public SubtitleController subtitleController;
-    public string purificationMessage = "The environment is recovering";
+
+    public string purificationMessage =
+        "The environment is recovering";
 
     public static bool purifierCollected = false;
 
@@ -20,9 +22,6 @@ public class PurificationTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!PauseMenuController.GameStarted)
-            return;
-
         if (activated)
             return;
 
@@ -38,36 +37,16 @@ public class PurificationTrigger : MonoBehaviour
 
         activated = true;
 
-        // Display the purification message.
         if (subtitleController != null)
         {
             subtitleController.ShowSubtitle(
                 purificationMessage);
         }
 
-        // Hide the polluted environment.
         if (pollutedEnvironment != null)
-        {
             pollutedEnvironment.SetActive(false);
-        }
 
-        // Show the restored environment.
         if (restoredEnvironment != null)
-        {
             restoredEnvironment.SetActive(true);
-
-            // Play the audio source inside the restored environment.
-            AudioSource audioSource = restoredEnvironment.GetComponentInChildren<AudioSource>();
-
-                if (audioSource != null)
-                {
-                    Debug.Log("Audio encontrado: " + audioSource.name);
-                    audioSource.Play();
-                }
-                else
-                {
-                    Debug.Log("No se encontró AudioSource");
-                }
-            }
     }
 }
