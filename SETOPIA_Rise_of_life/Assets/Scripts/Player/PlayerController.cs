@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
     [Header("Movement Settings")]
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 8f;
@@ -16,16 +15,22 @@ public class PlayerController : MonoBehaviour
 
     private AudioSource audioSource;
     private Rigidbody2D rb;
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
     private float moveInput;
 
-    //Tracks whether movement is being controlled through the HUD.
+    // Tracks whether movement is being controlled through the HUD.
     private bool usingHUD = false;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
+
     private void Update()
     {
         if (!PauseMenuController.GameStarted)
@@ -45,10 +50,28 @@ public class PlayerController : MonoBehaviour
             {
                 moveInput = -1f;
             }
+
             if (Input.GetKeyDown(KeyCode.UpArrow))
             {
                 Jump();
             }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                Crouch();
+            }
+        }
+
+        // Update walk/idle animation parameter for both keyboard and HUD buttons.
+        if (animator != null)
+        {
+            animator.SetFloat("Speed", Mathf.Abs(moveInput));
+        }
+
+        // Flip the character sprite horizontally based on movement direction.
+        if (spriteRenderer != null && moveInput != 0)
+        {
+            spriteRenderer.flipX = moveInput < 0;
         }
     }
 
@@ -72,7 +95,7 @@ public class PlayerController : MonoBehaviour
         usingHUD = true;
         moveInput = 1f;
 
-        if (jumpClip != null && audioSource != null)
+        if (movementClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(movementClip);
         }
@@ -83,7 +106,7 @@ public class PlayerController : MonoBehaviour
         usingHUD = true;
         moveInput = -1f;
 
-        if (jumpClip != null && audioSource != null)
+        if (movementClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(movementClip);
         }
@@ -98,16 +121,21 @@ public class PlayerController : MonoBehaviour
     // Applies the jump force while preserving horizontal velocity.
     public void Jump()
     {
-        rb.linearVelocity =
-            new Vector2(
+        rb.linearVelocity = new Vector2(
             rb.linearVelocity.x,
-            jumpForce);
+            jumpForce
+        );
+
+        // Trigger jump animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Jump");
+        }
 
         if (jumpClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(jumpClip);
         }
-
     }
 
     // HUD crouch action.
@@ -115,22 +143,32 @@ public class PlayerController : MonoBehaviour
     {
         Debug.Log("Crouch");
 
-        if (jumpClip != null && audioSource != null)
+        // Trigger crouch animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Crouch");
+        }
+
+        if (crouchClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(crouchClip);
         }
     }
 
-    // HUD pickup action.
+    // Called when the Pickup HUD button is pressed.
     public void Pickup()
     {
         Debug.Log("Pickup");
 
-        if (jumpClip != null && audioSource != null)
+        // Trigger grab animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Grab");
+        }
+
+        if (pickupClip != null && audioSource != null)
         {
             audioSource.PlayOneShot(pickupClip);
         }
     }
-
-
 }

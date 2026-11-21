@@ -26,9 +26,32 @@ public class CameraFollow : MonoBehaviour
         initialCameraX = transform.position.x;
     }
 
+    private void Start()
+    {
+        // Auto-assign the moving Player if target is missing or pointing to a static object like CameraTarget.
+        if (target == null || target.GetComponentInParent<PlayerController>() == null)
+        {
+            PlayerController player = FindFirstObjectByType<PlayerController>();
+            if (player != null)
+            {
+                target = player.transform;
+            }
+        }
+
+        // Try to auto-find the right boundary if it became unassigned.
+        if (levelRightEdge == null)
+        {
+            GameObject rightEdgeObj = GameObject.Find("LevelRightEdge");
+            if (rightEdgeObj != null)
+            {
+                levelRightEdge = rightEdgeObj.transform;
+            }
+        }
+    }
+
     private void LateUpdate()
     {
-        if (target == null || cameraComponent == null || levelRightEdge == null)
+        if (target == null || cameraComponent == null)
             return;
 
         // Start following once the player reaches the configured position.
@@ -41,21 +64,23 @@ public class CameraFollow : MonoBehaviour
         if (!hasStartedFollowing)
             return;
 
-        // Calculate the right camera boundary using the visible camera width.
-        float cameraHalfWidth = cameraComponent.orthographicSize * cameraComponent.aspect;
-        float maxCameraX = levelRightEdge.position.x - cameraHalfWidth;
+        float desiredX = target.position.x + offsetX;
 
-        // Prevent the camera from moving beyond the level boundaries.
-        maxCameraX = Mathf.Max(initialCameraX, maxCameraX);
-
-        float targetX = Mathf.Clamp(
-            target.position.x + offsetX,
-            initialCameraX,
-            maxCameraX
-        );
+        // Clamp to level boundaries only if levelRightEdge is assigned.
+        if (levelRightEdge != null)
+        {
+            float cameraHalfWidth = cameraComponent.orthographicSize * cameraComponent.aspect;
+            float maxCameraX = levelRightEdge.position.x - cameraHalfWidth;
+            maxCameraX = Mathf.Max(initialCameraX, maxCameraX);
+            desiredX = Mathf.Clamp(desiredX, initialCameraX, maxCameraX);
+        }
+        else
+        {
+            desiredX = Mathf.Max(initialCameraX, desiredX);
+        }
 
         Vector3 desiredPosition = new Vector3(
-            targetX,
+            desiredX,
             transform.position.y,
             transform.position.z
         );

@@ -10153,7 +10153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &557015417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11551,7 +11551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &697544319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12454,7 +12454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &737543093
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19468,9 +19468,9 @@ MonoBehaviour:
   settingsMenu: {fileID: 1182875657}
   openMenuClip: {fileID: 8300000, guid: 537f58699a519914785a6653bc5c3fe2, type: 3}
   closeMenuClip: {fileID: 8300000, guid: 3d381310768a1e540a165b9d9aa9a1ed, type: 3}
-  menuMusic: {fileID: 1908631651}
-  playButtonSound: {fileID: 1303977137}
-  pollutedEnvironmentAudio: {fileID: 929692588}
+  menuMusic: {fileID: 0}
+  playButtonSound: {fileID: 0}
+  pollutedEnvironmentAudio: {fileID: 0}
 --- !u!224 &1179579294
 RectTransform:
   m_ObjectHideFlags: 0
@@ -19930,7 +19930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &1193135024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25088,6 +25088,7 @@ GameObject:
   - component: {fileID: 1549797483}
   - component: {fileID: 1549797484}
   - component: {fileID: 1549797485}
+  - component: {fileID: 1549797486}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -25159,12 +25160,12 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 2
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9245283, g: 0.6497864, b: 0.6497864, a: 1}
+  m_Sprite: {fileID: -3333306228155105222, guid: 62c0d3591400948d49cbb4b11b12ef84, type: 3}
+  m_Color: {r: 0.8773585, g: 0.8773585, b: 0.8773585, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -25207,9 +25208,9 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    pivot: {x: 0.4809759, y: 0.2526865}
+    oldSize: {x: 2, y: 2}
+    newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -25242,7 +25243,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1549797483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25274,6 +25275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   maxHealth: 100
+  damageAnimCooldown: 0.6
   live100: {fileID: 1814074855}
   live60: {fileID: 1246918151}
   live40: {fileID: 207468737}
@@ -25375,6 +25377,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1549797486
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549797478}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 193dedee40d604875ac192df4931736e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 1
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1582996235
 GameObject:
   m_ObjectHideFlags: 0
@@ -26730,7 +26754,7 @@ MonoBehaviour:
   buttonHighlights: []
   tutorialMessage: Tutorial Complete!
   subtitleController: {fileID: 1620228794}
-  triggerSound: {fileID: 843492373}
+  triggerSound: {fileID: 0}
 --- !u!61 &1687623937
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31175,7 +31199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &1979933269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31595,7 +31619,7 @@ MonoBehaviour:
   tutorialMessage: The toxic fog is coming! Purify the area before the environment
     deteriorates.
   subtitleController: {fileID: 1620228794}
-  triggerSound: {fileID: 787009824}
+  triggerSound: {fileID: 0}
 --- !u!61 &2008387107
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -31934,8 +31958,8 @@ MonoBehaviour:
   target: {fileID: 1549797479}
   smoothSpeed: 5
   offsetX: 0
-  levelRightEdge: {fileID: 804164325}
-  followStartX: 0.5
+  levelRightEdge: {fileID: 0}
+  followStartX: 0
 --- !u!1 &2020723626
 GameObject:
   m_ObjectHideFlags: 0
@@ -34588,7 +34612,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edbb3ba5e71e618428623adaabb24407, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldMovementAudio
-  audioSource: {fileID: 0}
+  audioSource: {fileID: 1549797485}
 --- !u!114 &2097525141
 MonoBehaviour:
   m_ObjectHideFlags: 0
