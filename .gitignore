@@ -23,7 +23,10 @@
 
 # Visual Studio
 .vscode/
+.vs/
 
 # Sistema
 .DS_Store
 Thumbs.db
+
+**/.vs/

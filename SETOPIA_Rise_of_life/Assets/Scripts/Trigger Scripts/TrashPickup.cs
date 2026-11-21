@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using TMPro;
 
@@ -6,15 +5,19 @@ public class TrashPickup : MonoBehaviour
 {
     public TMP_Text objectiveText;
 
+    [Header("Pickup Sound")]
+    public AudioClip pickupSound;
+    [Range(0f, 1f)]
+    public float soundVolume = 1f;
+
     private static int trashCount = 0;
+    private bool collected = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     private static void ResetCounter()
     {
         trashCount = 0;
     }
-
-    private bool collected = false;
 
     private void Start()
     {
@@ -30,6 +33,15 @@ public class TrashPickup : MonoBehaviour
         {
             collected = true;
             trashCount++;
+
+            if (pickupSound != null)
+            {
+                AudioSource.PlayClipAtPoint(
+                    pickupSound,
+                    transform.position,
+                    soundVolume
+                );
+            }
 
             UpdateCounter();
 
