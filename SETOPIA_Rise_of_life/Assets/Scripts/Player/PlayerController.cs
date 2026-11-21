@@ -65,6 +65,11 @@ public class PlayerController : MonoBehaviour
         {
             spriteRenderer.flipX = moveInput < 0;
         }
+
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Crouch();
+        }
     }
 
     void FixedUpdate()
@@ -136,6 +141,17 @@ public class PlayerController : MonoBehaviour
     public void Crouch()
     {
         Debug.Log("Crouch");
+
+        if (crouchClip != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(crouchClip);
+        }
+
+        // Trigger crouch animation.
+        if (animator != null)
+        {
+            animator.SetTrigger("Crouch");
+        }
 
         if (crouchClip != null && audioSource != null)
         {
