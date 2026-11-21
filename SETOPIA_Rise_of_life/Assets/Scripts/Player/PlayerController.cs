@@ -21,15 +21,18 @@ public class PlayerController : MonoBehaviour
 
     // Stores whether the player is using HUD controls.
     private bool usingHUD = false;
-
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
     }
-
-    void Update()
+        void Update()
     {
+
+        if (!PauseMenuController.GameStarted)
+            return;
+
+        // movimiento aquí
         // Read keyboard input only when HUD controls are not being used.
         if (!usingHUD)
         {
