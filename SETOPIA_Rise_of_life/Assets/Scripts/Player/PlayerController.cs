@@ -7,17 +7,27 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private float jumpForce = 8f;
 
+    [Header("Jump Settings")]
+    [SerializeField] private int maxJumps = 2;
+    [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private Transform groundCheck;
+    [SerializeField] private float groundCheckRadius = 0.2f;
+
     [Header("Audio Settings")]
-    [SerializeField] private AudioClip movementClip;
     [SerializeField] private AudioClip jumpClip;
     [SerializeField] private AudioClip crouchClip;
     [SerializeField] private AudioClip pickupClip;
+
+    [Header("Coyote Time")]
+    [SerializeField] private float coyoteTime = 0.15f;
 
     private AudioSource audioSource;
     private Rigidbody2D rb;
     private Animator animator;
     private SpriteRenderer spriteRenderer;
-
+    private int jumpCount = 0;
+    private bool isGrounded;
+    private float coyoteTimer;
     private float moveInput;
 
     // Tracks whether movement is being controlled through the HUD.
@@ -35,6 +45,22 @@ public class PlayerController : MonoBehaviour
     {
         if (!PauseMenuController.GameStarted)
             return;
+
+        isGrounded = Physics2D.OverlapCircle(
+        groundCheck.position,
+        groundCheckRadius,
+        groundLayer
+        );
+
+        if (isGrounded)
+        {
+            coyoteTimer = coyoteTime;
+            jumpCount = 0;
+        }
+        else
+        {
+            coyoteTimer -= Time.deltaTime;
+        }
 
         // Read keyboard input only when HUD controls are inactive.
         if (!usingHUD)
@@ -94,22 +120,12 @@ public class PlayerController : MonoBehaviour
     {
         usingHUD = true;
         moveInput = 1f;
-
-        if (movementClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(movementClip);
-        }
     }
 
     public void MoveLeft()
     {
         usingHUD = true;
         moveInput = -1f;
-
-        if (movementClip != null && audioSource != null)
-        {
-            audioSource.PlayOneShot(movementClip);
-        }
     }
 
     public void StopMovement()
@@ -121,6 +137,21 @@ public class PlayerController : MonoBehaviour
     // Applies the jump force while preserving horizontal velocity.
     public void Jump()
     {
+        bool canUseGroundJump = isGrounded || coyoteTimer > 0f;
+
+        if (canUseGroundJump)
+        {
+            jumpCount = 1;
+            coyoteTimer = 0f;
+        }
+        else
+        {
+            if (jumpCount >= maxJumps)
+                return;
+
+            jumpCount++;
+        }
+
         rb.linearVelocity = new Vector2(
             rb.linearVelocity.x,
             jumpForce
@@ -158,9 +189,24 @@ public class PlayerController : MonoBehaviour
     // Called when the Pickup HUD button is pressed.
     public void Pickup()
     {
-        Debug.Log("Pickup");
+        bool collectedSomething = false;
 
-        // Trigger grab animation.
+        if (TrashPickup.nearbyTrash != null)
+        {
+            TrashPickup.nearbyTrash.Collect();
+            collectedSomething = true;
+        }
+
+        if (PurifierPickup.nearbyPurifier != null)
+        {
+            PurifierPickup.nearbyPurifier.Collect();
+            collectedSomething = true;
+        }
+
+        // Play feedback only when an object was actually collected.
+        if (!collectedSomething)
+            return;
+
         if (animator != null)
         {
             animator.SetTrigger("Grab");

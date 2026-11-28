@@ -7,11 +7,23 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private float maxHealth = 100f;
     [SerializeField] private float damageAnimCooldown = 0.6f;
 
-    [Header("Health Images")]
-    [SerializeField] private GameObject live100;
-    [SerializeField] private GameObject live60;
-    [SerializeField] private GameObject live40;
-    [SerializeField] private GameObject live10;
+    [Header("Normal Contrast")]
+    [SerializeField] private GameObject live100Normal;
+    [SerializeField] private GameObject live60Normal;
+    [SerializeField] private GameObject live40Normal;
+    [SerializeField] private GameObject live10Normal;
+
+    [Header("High Contrast")]
+    [SerializeField] private GameObject live100High;
+    [SerializeField] private GameObject live60High;
+    [SerializeField] private GameObject live40High;
+    [SerializeField] private GameObject live10High;
+
+    [Header("Very High Contrast")]
+    [SerializeField] private GameObject live100VeryHigh;
+    [SerializeField] private GameObject live60VeryHigh;
+    [SerializeField] private GameObject live40VeryHigh;
+    [SerializeField] private GameObject live10VeryHigh;
 
     private Animator animator;
     private float currentHealth;
@@ -53,30 +65,55 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
+    private void HideAllLives()
+    {
+        // Normal
+        live100Normal.SetActive(false);
+        live60Normal.SetActive(false);
+        live40Normal.SetActive(false);
+        live10Normal.SetActive(false);
+
+        // High
+        live100High.SetActive(false);
+        live60High.SetActive(false);
+        live40High.SetActive(false);
+        live10High.SetActive(false);
+
+        // Very High
+        live100VeryHigh.SetActive(false);
+        live60VeryHigh.SetActive(false);
+        live40VeryHigh.SetActive(false);
+        live10VeryHigh.SetActive(false);
+    }
+
     private void UpdateHealthUI()
     {
-        // Hide all health indicators before updating the display.
-        live100.SetActive(false);
-        live60.SetActive(false);
-        live40.SetActive(false);
-        live10.SetActive(false);
+        HideAllLives();
 
         // Display the health indicator corresponding to the current value.
         if (currentHealth > 60)
         {
-            live100.SetActive(true);
+            live100Normal.SetActive(true);
+            live100High.SetActive(true);
+            live100VeryHigh.SetActive(true);
         }
         else if (currentHealth > 40)
         {
-            live60.SetActive(true);
+            live60Normal.SetActive(true);
+            live60High.SetActive(true);
+            live60VeryHigh.SetActive(true);
         }
         else if (currentHealth > 10)
         {
-            live40.SetActive(true);
+            live40Normal.SetActive(true);
+            live40High.SetActive(true);
+            live40VeryHigh.SetActive(true);
         }
         else if (currentHealth > 0)
         {
-            live10.SetActive(true);
+            live10Normal.SetActive(true);
+            live10High.SetActive(true);
+            live10VeryHigh.SetActive(true);
         }
     }
 
